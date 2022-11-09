@@ -1,0 +1,53 @@
+- validate inputs
+- when user changes particle size, check if increase in size
+causes overlap
+- methods to get/set private properties 
+
+- afternoon: page elements; login/register
+- evening: validate num inputs 
+- add slider text to slider object
+
+
+
+colours:
+blue: (153, 204, 255)
+red: (241, 156, 153)
+yellow: (255, 229, 153)
+green: (184, 224, 165)
+
+
+['arial', 'arialblack', 'bahnschrift', 'calibri', 'cambria', 
+'cambriamath', 'candara', 'comicsansms', 'consolas', 'constantia', 
+'corbel', 'couriernew', 'ebrima', 'franklingothicmedium', 'gabriola', 
+'gadugi', 'georgia', 'impact', 'inkfree', 'javanesetext', 'leelawadeeui', 
+'leelawadeeuisemilight', 'lucidaconsole', 'lucidasans', 'malgungothic', 
+'malgungothicsemilight', 'microsofthimalaya', 'microsoftjhenghei', 'microsoftjhengheiui', 
+'microsoftnewtailue', 'microsoftphagspa', 'microsoftsansserif', 'microsofttaile', 
+'microsoftyahei', 'microsoftyaheiui', 'microsoftyibaiti', 'mingliuextb', 'pmingliuextb', 
+'mingliuhkscsextb', 'mongolianbaiti', 'msgothic', 'msuigothic', 'mspgothic', 'mvboli', 'myanmartext', 
+'nirmalaui', 'nirmalauisemilight', 'palatinolinotype', 'segoemdl2assets', 'segoeprint', 'segoescript', 
+'segoeui', 'segoeuiblack', 'segoeuiemoji', 'segoeuihistoric', 'segoeuisemibold', 'segoeuisemilight', 
+'segoeuisymbol', 'simsun', 'nsimsun', 'simsunextb', 'sitkasmall', 'sitkatext', 'sitkasubheading', 
+'sitkaheading', 'sitkadisplay', 'sitkabanner', 'sylfaen', 'symbol', 'tahoma', 'timesnewroman', 'trebuchetms', 
+'verdana', 'webdings', 'wingdings', 'yugothic', 'yugothicuisemibold', 'yugothicui', 'yugothicmedium', 
+'yugothicuiregular', 'yugothicregular', 'yugothicuisemilight', 'holomdl2assets', 'arialms', 'century', 
+'wingdings2', 'wingdings3', 'bookantiqua', 'centurygothic', 'haettenschweiler', 'msoutlook', 'tempussansitc', 
+'pristina', 'papyrus', 'mistral', 'lucidahandwriting', 'kristenitc', 'juiceitc', 'frenchscript', 
+'freestylescript', 'bradleyhanditc', 'garamond', 'monotypecorsiva', 'algerian', 'baskervilleoldface', 
+'bauhaus93', 'bell', 'berlinsansfb', 'bernardcondensed', 'bodonipostercompressed', 'britannic', 'broadway', 
+'brushscript', 'californianfb', 'centaur', 'chiller', 'colonna', 'cooperblack', 'footlight', 'harlowsolid', 
+'harrington', 'hightowertext', 'jokerman', 'kunstlerscript', 'lucidabright', 'lucidacalligraphy', 
+'lucidafaxregular', 'magneto', 'maturascriptcapitals', 'modernno20', 'niagaraengraved', 'niagarasolid', 
+'oldenglishtext', 'onyx', 'parchment', 'playbill', 'poorrichard', 'ravie', 'informalroman', 'showcardgothic', 
+'snapitc', 'stencil', 'vinerhanditc', 'vivaldi', 'vladimirscript', 'widelatin', 'twcen', 'twcencondensed', 
+'script', 'rockwellextra', 'rockwellcondensed', 'rockwell', 'rage', 'perpetuatitling', 'perpetua', 
+'palacescript', 'ocraextended', 'maiandragd', 'lucidasanstypewriterregular', 'lucidasansregular', 
+'imprintshadow', 'goudystout', 'goudyoldstyle', 'gloucesterextracondensed', 'gillsansultracondensed', 
+'gillsansultra', 'gillsanscondensed', 'gillsans', 'gillsansextcondensed', 'gigi'illsansextcondensed', 
+'gigi', 'franklingothicmediumcond', 'franklingothicheavy', 'franklingothicdemicond', 'franklingook', 
+'forte', 'felixtitling'thicdemi', 'franklingothicbook', 'forte', 'felixtitling', 'erasmediumitc', 
+'erasitc', 'erasdemiitc', 'engravers', 'elec', 'centuryschoolbook', 'caphant', 'edwardianscriptitc', 
+'curlz', 'copperplategothic', 'centuryschoolbook', 'castellar', 'calisto', 'bookmanoldstagencyfb', 
+'bookshelfsymbol7yle', 'bodonicondensed', 'bodoniblack', 'bodoni', 'blackadderitc', 'arialrounded', 
+'agencyfb', 'bookshelfsymbol7', 'mstypewriter', 'lucidasanstypereferencesansserif', 'msreferencespecialty', 
+'berlinsansfbdemi', 'lucidafax', 'twcencondensedextra', 'lucidasanstypewriter', 'lucidasanstypewriteroblique', 'lucidasansroman', 'extra']

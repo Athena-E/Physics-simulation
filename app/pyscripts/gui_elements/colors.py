@@ -1,0 +1,13 @@
+# colors
+black = (0, 0, 0)
+white = (255, 255, 255)
+red = (255, 55, 10)
+blue = (0, 149, 255)
+amber = (247, 173, 54)
+lightGray = (135, 135, 135)
+emeraldGreen = (66, 184, 97)
+lightBlue = (177, 221, 240)
+lilac = (156, 165, 255)
+darkGray = (50, 50, 50)
+peach = (250, 215, 172)
+darkPeach = (247, 201, 143)
