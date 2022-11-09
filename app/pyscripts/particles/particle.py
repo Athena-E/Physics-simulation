@@ -6,8 +6,8 @@ class Particle(object):
     def __init__(self, position, size, screen, screenW, screenH, screenPos, boundaryX, boundaryY, color):
         # constructor to set particle properties
         self.MAX_SPEED = 0
-        self.MAX_MASS = 0
-        self.MIN_MASS = 0
+        self.MAX_MASS = 10
+        self.MIN_MASS = 1
         
         self._x, self._y = position
         self._size = size
