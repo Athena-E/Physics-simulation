@@ -6,6 +6,7 @@ import numpy as np
 import csv
 import sys
 import json
+import time
 
 from gui_elements.input_text_box import InputTextBox
 from gui_elements.toggle_button import ToggleButton

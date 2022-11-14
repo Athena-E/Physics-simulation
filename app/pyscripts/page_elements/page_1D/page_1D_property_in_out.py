@@ -1,5 +1,5 @@
 from page_elements.page_1D.page_1D_property_labels import PropertyLabels1D
-from __init__ import TextBox, InputTextBox, Button, colorOrder
+from __init__ import pg, TextBox, InputTextBox, Button, colorOrder, red
 
 # class to set and initialise input output elements for 1D page
 # inherits from PropertyLabels1D class
@@ -11,6 +11,10 @@ class PropertyInOut1D(PropertyLabels1D):
 
         self.Env = Env
 
+        # properties to display error message with delay 
+        self.clock = pg.time.Clock()
+        self.delay = 0
+
         # call methods to set input output elements for 2 particles
         self.p1Dim = self.setPropertyInOut(0)
         self.p2Dim = self.setPropertyInOut(1)
@@ -20,19 +24,21 @@ class PropertyInOut1D(PropertyLabels1D):
         p2InOut = self.initPropertyInOut(self.p2Dim, 2)
         self.pInputOutputList = [p1InOut, p2InOut]
 
-        self.setKineticEnergyText()
-        self.initKineticEnergyText()
+        self.setOutputText()
+        self.initOutputText()
         
 
-    def setKineticEnergyText(self):
+    def setOutputText(self):
         # calculate position of kinetic energy output text
 
         self.KETextPos = (self.totalKELabelPos[0], self.totalKELabelPos[1]+self.propertiesFontSize)
+        self.alertBoxPos = (self.collisionPos[0]+self.margin, self.collisionPos[1]+self.margin)
 
-    def initKineticEnergyText(self):
+    def initOutputText(self):
         # instantiate kinetic energy text box object
     
         self.KEText = TextBox(pos=self.KETextPos, screen=self.screen, text="0.00", fontSize=self.propertiesFontSize)
+        self.alertBox = TextBox(pos=self.alertBoxPos, screen=self.screen, fontSize=self.propertiesFontSize, textAlign="right", textColor=red, text="")
 
 
     def setPropertyInOut(self, pIndex):
@@ -104,3 +110,16 @@ class PropertyInOut1D(PropertyLabels1D):
 
         self.KEText.displayText()
         self.KEText.update(str(self.Env.getTotalKineticEnergy()))
+
+        self.alertBox.displayText()
+        
+        errorAlert = self.Env.getParticleErrorAlert()
+        self.alertBox.update(errorAlert)
+
+        if errorAlert != "":
+            dt = self.clock.tick()
+            self.delay += dt
+
+            if self.delay > 8000:
+                self.Env.resetParticleErrorAlert()
+                self.delay = 0

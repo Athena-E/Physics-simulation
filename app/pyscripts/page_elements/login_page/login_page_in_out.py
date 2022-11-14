@@ -55,6 +55,8 @@ class LoginPageInOut(LoginPageButtons):
         self.passwordInputBox.updateInput(events)
 
         self.alertBox.displayText()
-        self.alertBox.update(self.Env.getErrorAlert())
+        self.alertBox.update(self.Env.getParticleErrorAlert())
+
+
 
 

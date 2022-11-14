@@ -1,5 +1,5 @@
 from page_elements.page_2D.page_2D_property_labels import PropertyLabels2D
-from __init__ import pg, TextBox, InputTextBox, Button, colorOrder
+from __init__ import pg, TextBox, InputTextBox, Button, colorOrder, red, time
 
 # class to set and initialise input and output elements for 2D page
 # inherits from PropertyLabels2D class
@@ -14,12 +14,16 @@ class PropertyInOut2D(PropertyLabels2D):
         self.inputBoxes = []
         self.inputButtons = []
 
+        # properties to display error message with delay
+        self.clock = pg.time.Clock()
+        self.delay = 0
+
         # call method to set input output elements for 4 particles
         self.p1Dim = self.setPropertyInOut(0)
         self.p2Dim = self.setPropertyInOut(1)
         self.p3Dim = self.setPropertyInOut(2)
         self.p4Dim = self.setPropertyInOut(3)
-        self.setKineticEnergyText()
+        self.setOutputText()
 
         # call method to initialise input output elements from 4 particles
         p1InOut = self.initPropertyInputOutput(self.p1Dim, 1)
@@ -28,7 +32,7 @@ class PropertyInOut2D(PropertyLabels2D):
         p4InOut = self.initPropertyInputOutput(self.p4Dim, 4)
         self.pInputOutputList = [p1InOut, p2InOut, p3InOut, p4InOut]
 
-        self.initKineticEnergyText()
+        self.initOutputText()
 
 
     def setPropertyInOut(self, pIndex):
@@ -62,15 +66,19 @@ class PropertyInOut2D(PropertyLabels2D):
         return propertyInOutDim
 
 
-    def setKineticEnergyText(self):
+    def setOutputText(self):
         # calculate position for kinetic energy text output
 
         self.KETextPos = (self.totalKELabelPos[0], self.totalKELabelPos[1]+self.propertiesFontSize)
 
-    def initKineticEnergyText(self):
+        self.alertBoxPos = (self.collisionPos[0]+self.margin, self.collisionPos[1]+self.margin)
+
+
+    def initOutputText(self):
         # instantiate kinetic energy text box object
     
         self.KEText = TextBox(pos=self.KETextPos, screen=self.screen, text="0.00", fontSize=self.propertiesFontSize)
+        self.alertBox = TextBox(pos=self.alertBoxPos, screen=self.screen, fontSize=self.propertiesFontSize, textAlign="right", textColor=red, text="")
 
 
     def initPropertyInputOutput(self, pDim, pIndex):
@@ -106,6 +114,7 @@ class PropertyInOut2D(PropertyLabels2D):
 
         return pInputOutput
 
+
     def drawPropertyInOut(self, events):
         # draw all input output elements to the screen
         # handle user inputs to input text boxes
@@ -139,6 +148,21 @@ class PropertyInOut2D(PropertyLabels2D):
 
         self.KEText.displayText()
         self.KEText.update(str(self.Env.getTotalKineticEnergy()))
+
+        self.alertBox.displayText()
+        
+        errorAlert = self.Env.getParticleErrorAlert()
+        self.alertBox.update(errorAlert)
+
+        if errorAlert != "":
+            dt = self.clock.tick()
+            self.delay += dt
+
+            if self.delay > 8000:
+                self.Env.resetParticleErrorAlert()
+                self.delay = 0
+
+
 
 
 

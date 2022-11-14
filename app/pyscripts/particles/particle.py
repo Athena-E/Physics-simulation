@@ -5,7 +5,7 @@ class Particle(object):
 
     def __init__(self, position, size, screen, screenW, screenH, screenPos, boundaryX, boundaryY, color):
         # constructor to set particle properties
-        self.MAX_SPEED = 0
+        self.MAX_SPEED = 7
         self.MAX_MASS = 10
         self.MIN_MASS = 1
         
@@ -26,6 +26,8 @@ class Particle(object):
 
         # list to queue and store initial and final momentum so impulse can be calculated
         self._momenta = [0, 0]
+
+        self.errorAlert = ""
 
 
 
@@ -51,6 +53,7 @@ class Particle(object):
         # if speed is out of range, speed is automatically set to the maximum
         speed = float(value)
         if abs(speed) > self.MAX_SPEED:
+            self.errorAlert = "velocity out of range"
             return speed/abs(speed) * self.MAX_SPEED
         elif abs(speed) <= self.MAX_SPEED:
             return speed
@@ -60,8 +63,10 @@ class Particle(object):
         # if mass is out of range, mass is automatically set to the maximum/minimum
         mass = float(value)
         if mass > self.MAX_MASS:
+            self.errorAlert = "mass out of range"
             return self.MAX_MASS
         elif mass < self.MIN_MASS:
+            self.errorAlert = "mass out of range"
             return self.MIN_MASS
         else:
             return mass
@@ -87,6 +92,9 @@ class Particle(object):
 
     def setYPos(self, value):
         self._y = value
+
+    def resetErrorAlert(self):
+        self.errorAlert = ""
 
 
     # get methods
@@ -126,6 +134,9 @@ class Particle(object):
 
     def getYPos(self):
         return self._y
+
+    def getErrorAlert(self):
+        return self.errorAlert
 
 
 

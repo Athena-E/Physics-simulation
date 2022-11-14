@@ -31,6 +31,7 @@ class Particle2D(Particle):
         # if speed is out of range, speed is automatically set to the maximum
         speed = float(value)
         if abs(speed) > self.MAX_SPEED_XY:
+            self.errorAlert = "velocity out of range"
             return speed/abs(speed) * self.MAX_SPEED_XY
         elif abs(speed) <= self.MAX_SPEED_XY:
             return float(value)

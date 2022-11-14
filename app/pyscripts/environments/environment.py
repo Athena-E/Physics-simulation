@@ -35,6 +35,8 @@ class Environment(object):
         self._momentumTimePoints = [[],[],[],[]]
         self._maxParticles = maxParticles
 
+        self.errorAlert = ""
+
 
     def centerDistance(self, x1, y1, x2, y2):
         # calculates distance between two particles' centres using Pythagors
@@ -132,6 +134,12 @@ class Environment(object):
         if id <= self._numOfParticles:
             self._particleList[id-1].setSpeed(float(value))
 
+    def resetParticleErrorAlert(self):
+        self.errorAlert = ""
+        for particle in self._particleList:
+            particle.resetErrorAlert()
+
+
 
     # get methods
 
@@ -163,7 +171,6 @@ class Environment(object):
         else:
             return 0.00
 
-
     def getTotalKineticEnergy(self):
         # sums the kinetic energies for each particle
         totalKE = 0
@@ -194,6 +201,14 @@ class Environment(object):
 
     def getMaxParticles(self):
         return self._maxParticles
+
+    def getParticleErrorAlert(self):
+        for particle in self._particleList:
+            particleError = particle.getErrorAlert()
+            if particleError != "":
+                self.errorAlert = particleError
+
+        return self.errorAlert
         
 
     def calculateCenterOfMass(self):
